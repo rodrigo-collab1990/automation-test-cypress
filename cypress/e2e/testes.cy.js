@@ -13,16 +13,9 @@ describe('Login com Cookies', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index');
   });
 
-
-   /* it('Teste de Login na aplicação', () => {
-        LoginLogic.preencherCampoUsuario();
-        LoginLogic.preencherCampoSenha();
-        LoginLogic.clicarBotaoLogin();
-        LoginLogic.validaLogin();
-    });*/
-
     it('Teste de Logout', () => {
     LoginLogic.clicarBotaoDaConta();
     LoginLogic.clicarBotaoLogOut();
+    LoginLogic.validarLogOut();
 });
 });

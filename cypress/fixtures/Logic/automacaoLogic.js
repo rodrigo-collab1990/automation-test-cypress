@@ -28,6 +28,11 @@ class LoginLogic {
     clicarBotaoLogOut(){
         cy.get(elementos.botaoLogout).contains('Logout').click();
     }
+
+    validarLogOut(){
+
+        cy.get(elementos.iconeTelaLogin).should('be.visible');
+    }
 }
 
 export default new LoginLogic();
