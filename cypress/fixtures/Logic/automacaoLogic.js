@@ -21,6 +21,13 @@ class LoginLogic {
     validaLogin(){
         cy.get(elementos.elementoValidaLogin).contains('Time at Work').should('be.visible');
     }
+
+    clicarBotaoDaConta(){
+        cy.get(elementos.botaoDaConta).click();
+    }
+    clicarBotaoLogOut(){
+        cy.get(elementos.botaoLogout).contains('Logout').click();
+    }
 }
 
 export default new LoginLogic();
