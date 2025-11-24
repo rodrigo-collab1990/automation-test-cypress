@@ -1,60 +1,64 @@
-import elementos from '../../fixtures/Page/automacaoPage';  
+import elementos from '../../fixtures/Page/automacaoPage';
+import usuarios from '../../fixtures/usuarios';
+
+const usuario = usuarios.gerarUsuario();
 
 class LoginLogic {
 
-    visitarPagina(){
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');        
+    visitarPagina() {
+        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
     }
 
     preencherCampoUsuario() {
         cy.get(elementos.campoUsuario).type('Admin');
     }
-            
-    preencherCampoSenha(){
+
+    preencherCampoSenha() {
         cy.get(elementos.campoSenha).type('admin123')
     }
 
-    clicarBotaoLogin(){
-        cy.get(elementos.botaoLogin).click();    
+    clicarBotaoLogin() {
+        cy.get(elementos.botaoLogin).click();
     }
 
-    validaLogin(){
+    validaLogin() {
         cy.get(elementos.elementoValidaLogin).contains('Time at Work').should('be.visible');
     }
 
-    clicarBotaoDaConta(){
+    clicarBotaoDaConta() {
         cy.get(elementos.botaoDaConta).click();
     }
-    clicarBotaoLogOut(){
+
+    clicarBotaoLogOut() {
         cy.get(elementos.botaoLogout).contains('Logout').click();
     }
 
-    validarLogOut(){
-
+    validarLogOut() {
         cy.get(elementos.iconeTelaLogin).should('be.visible');
     }
-    clicarBotaoAdmin(){
+    
+    clicarBotaoAdmin() {
         cy.get(elementos.botaoAdmin).contains('Admin').click();
     }
 
-    clicarBotaoAdd(){
+    clicarBotaoAdd() {
         cy.get(elementos.botaoAdd).contains('Add').click();
-
     }
-    
-    preencherFormulario(){
+
+    preencherFormulario() {
         cy.get(elementos.selecionarFuncao).first().click();
         cy.get(elementos.opcaoAdmin).contains('Admin').click();
         cy.get(elementos.selecionarStatus).last().click();
         cy.get(elementos.opcaoEnabled).contains('Enabled').click();
         cy.get(elementos.nomeDoFuncionario).type('R');
         cy.get(elementos.selecionarFuncionario).eq(3).click();
-        cy.get(elementos.campoUsername).eq(1).type('rblgd90_ddt7');
+        cy.get(elementos.campoUsername).eq(1).type(usuario);
         cy.get(elementos.campoPassword).first().type('203060Rfm*');
         cy.get(elementos.campoConfirmPassword).eq(2).type('203060Rfm*');
         cy.get(elementos.botaoSave).click();
-    }    
-    validarSucessoCadastro(){
+    }
+
+    validarSucessoCadastro() {
         cy.get('.oxd-toast').should('be.visible');
         cy.wait(1000);
     }
