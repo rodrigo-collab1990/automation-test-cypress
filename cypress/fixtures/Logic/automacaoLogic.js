@@ -41,43 +41,20 @@ class LoginLogic {
         cy.get(elementos.botaoAdd).contains('Add').click();
 
     }
-    clicarBotaoSelecionarFuncao(){
+    
+    preencherFormulario(){
         cy.get(elementos.selecionarFuncao).first().click();
-    }
-    clicarOpcaoAdmin(){
         cy.get(elementos.opcaoAdmin).contains('Admin').click();
-    }
-
-    selecionarStatus(){
         cy.get(elementos.selecionarStatus).last().click();
-    }
-
-    selecionarOpcaoEnabled(){
         cy.get(elementos.opcaoEnabled).contains('Enabled').click();
-    }
-    preencherNomeFuncionario(){
         cy.get(elementos.nomeDoFuncionario).type('R');
-    }
-
-    selecionarFuncionario(){
         cy.get(elementos.selecionarFuncionario).eq(3).click();
-    }
-
-    preencherCampoUsername(){
-        cy.get(elementos.campoUsername).eq(1).type('rblgd90_ddt3');
-    }
-    preenherCampoPassword(){
+        cy.get(elementos.campoUsername).eq(1).type('rblgd90_ddt7');
         cy.get(elementos.campoPassword).first().type('203060Rfm*');
-    }
-
-    preencherConfirmPassword(){
         cy.get(elementos.campoConfirmPassword).eq(2).type('203060Rfm*');
-    }
-
-    clicarBotaoSave(){
         cy.get(elementos.botaoSave).click();
-    }
-    validarSucesso(){
+    }    
+    validarSucessoCadastro(){
         cy.get('.oxd-toast').should('be.visible');
         cy.wait(1000);
     }
