@@ -1,1 +1,2 @@
 Cypress.env.json
+cypress/fixtures/cookies.json
