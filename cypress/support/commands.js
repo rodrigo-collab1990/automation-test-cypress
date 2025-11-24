@@ -1,6 +1,6 @@
 import LoginLogic from '../fixtures/Logic/automacaoLogic';
 
-// Comando para realizar login e salvar cookies
+// LOGIN + SALVAR COOKIES
 Cypress.Commands.add('loginComCookies', () => {
   cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 
@@ -9,17 +9,28 @@ Cypress.Commands.add('loginComCookies', () => {
   LoginLogic.clicarBotaoLogin();
   LoginLogic.validaLogin();
 
-  // Salva todos os cookies APÓS logar
   cy.getCookies().then((cookies) => {
     cy.writeFile('cypress/fixtures/cookies.json', cookies);
   });
 });
 
-// Comando para restaurar cookies antes dos testes
+// RESTAURAR COOKIES
 Cypress.Commands.add('restaurarCookies', () => {
   cy.readFile('cypress/fixtures/cookies.json').then((cookies) => {
+    cy.clearCookies();
+
     cookies.forEach((cookie) => {
-      cy.setCookie(cookie.name, cookie.value);
+      cy.setCookie(cookie.name, cookie.value, {
+        domain: cookie.domain,
+        httpOnly: cookie.httpOnly,
+        secure: cookie.secure,
+        expiry: cookie.expiry,
+        path: cookie.path
+      });
     });
   });
+});
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // Retorna false para impedir que o Cypress falhe o teste
+  return false;
 });

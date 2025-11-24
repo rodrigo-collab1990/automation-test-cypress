@@ -33,6 +33,53 @@ class LoginLogic {
 
         cy.get(elementos.iconeTelaLogin).should('be.visible');
     }
+    clicarBotaoAdmin(){
+        cy.get(elementos.botaoAdmin).contains('Admin').click();
+    }
+
+    clicarBotaoAdd(){
+        cy.get(elementos.botaoAdd).contains('Add').click();
+
+    }
+    clicarBotaoSelecionarFuncao(){
+        cy.get(elementos.selecionarFuncao).first().click();
+    }
+    clicarOpcaoAdmin(){
+        cy.get(elementos.opcaoAdmin).contains('Admin').click();
+    }
+
+    selecionarStatus(){
+        cy.get(elementos.selecionarStatus).last().click();
+    }
+
+    selecionarOpcaoEnabled(){
+        cy.get(elementos.opcaoEnabled).contains('Enabled').click();
+    }
+    preencherNomeFuncionario(){
+        cy.get(elementos.nomeDoFuncionario).type('R');
+    }
+
+    selecionarFuncionario(){
+        cy.get(elementos.selecionarFuncionario).eq(3).click();
+    }
+
+    preencherCampoUsername(){
+        cy.get(elementos.campoUsername).eq(1).type('rblgd90_ct2');
+    }
+    preenherCampoPassword(){
+        cy.get(elementos.campoPassword).first().type('203060Rfm*');
+    }
+
+    preencherConfirmPassword(){
+        cy.get(elementos.campoConfirmPassword).eq(2).type('203060Rfm*');
+    }
+
+    clicarBotaoSave(){
+        cy.get(elementos.botaoSave).click();
+    }
+    validarSucesso(){
+        cy.get('.oxd-toast').should('be.visible');
+    }
 }
 
 export default new LoginLogic();
