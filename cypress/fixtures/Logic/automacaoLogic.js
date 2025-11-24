@@ -27,6 +27,7 @@ class LoginLogic {
 
     clicarBotaoDaConta() {
         cy.get(elementos.botaoDaConta).click();
+        cy.wait(500);
     }
 
     clicarBotaoLogOut() {
