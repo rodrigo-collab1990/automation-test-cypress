@@ -16,17 +16,8 @@
     it('Cadastrar um usuário', () => {
         LoginLogic.clicarBotaoAdmin();
         LoginLogic.clicarBotaoAdd();
-        LoginLogic.clicarBotaoSelecionarFuncao();
-        LoginLogic.clicarOpcaoAdmin();
-        LoginLogic.selecionarStatus();
-        LoginLogic.selecionarOpcaoEnabled();
-        LoginLogic.preencherNomeFuncionario();
-        LoginLogic.selecionarFuncionario();
-        LoginLogic.preencherCampoUsername();
-        LoginLogic.preenherCampoPassword();
-        LoginLogic.preencherConfirmPassword();
-        LoginLogic.clicarBotaoSave();
-        LoginLogic.validarSucesso();
+        LoginLogic.preencherFormulario();
+        LoginLogic.validarSucessoCadastro();
 });
 
       it('Teste de Logout', () => {
