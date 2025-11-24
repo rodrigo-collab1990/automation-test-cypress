@@ -64,7 +64,7 @@ class LoginLogic {
     }
 
     preencherCampoUsername(){
-        cy.get(elementos.campoUsername).eq(1).type('rblgd90_ct2');
+        cy.get(elementos.campoUsername).eq(1).type('rblgd90_ddt3');
     }
     preenherCampoPassword(){
         cy.get(elementos.campoPassword).first().type('203060Rfm*');
@@ -79,6 +79,7 @@ class LoginLogic {
     }
     validarSucesso(){
         cy.get('.oxd-toast').should('be.visible');
+        cy.wait(1000);
     }
 }
 
